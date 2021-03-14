@@ -2,8 +2,8 @@
 <head>
 <title>Get the Picture!</title>
 <meta charset="utf-8">
-<!-- pix to add: post office, apartment, globe, bridge, factory, science, math, library, motorcycle, garden, other culturally significant countries, other jobs-->
-    
+<!-- pix to add: post office, apartment, science, math, library, garden, other culturally significant countries (France, Italy, Russia?), other jobs-->
+
 <style>
 
 #menu {
@@ -54,11 +54,11 @@ left: 650px;
 top: 200px;
 left: 50px;
 }
-    
+
 #p64 {
 top: 200px;
 left: 250px;
-}    
+}
 
 #wholePuzzle {
 display: none;
@@ -70,6 +70,25 @@ width: 100%;
 height: 100%;
 background-size: 100% 100%;
 position: fixed;
+}
+
+.puzzleCoverPiece {
+font-family: "Arial";
+text-align: center;
+position: fixed;
+background-color: #FFFFFF;
+}
+
+#clickToShowCCNotice {
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+#imageLicensingNotice {
+visibility: hidden;
+margin: 0px;
+padding: 0px;
+background-size: 100% 100%;
 }
 
 </style>
@@ -90,6 +109,16 @@ position: fixed;
 <p id='puzzle08' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz08")'>#8</p>
 <p id='puzzle09' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz09")'>#9</p>
 <p id='puzzle10' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz10")'>#10</p>
+<p id='puzzle11' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz11")'>#11</p>
+<p id='puzzle12' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz12")'>#12</p>
+<p id='puzzle13' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz13")'>#13</p>
+<p id='puzzle14' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz14")'>#14</p>
+<p id='puzzle15' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz15")'>#15</p>
+<p id='puzzle16' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz16")'>#16</p>
+<p id='puzzle17' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz17")'>#17</p>
+<p id='puzzle18' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz18")'>#18</p>
+<p id='puzzle19' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz19")'>#19</p>
+<p id='puzzle20' onmouseover="mOver(this)" onmouseout="mOut(this)" onClick='goToChoices("puz20")'>#20</p>
 </div>
 
 <div id="pieceCountChoices">
@@ -122,7 +151,28 @@ position: fixed;
 
 <div id='puzzleCover64'>
 </div>
-    
+
+<div id='clickToShowCCNotice' onclick=showimageLicensingNotice()>
+  Click for image attribution and licensing (spoilers!)
+</div>
+
+<div id='imageLicensingNotice'>
+  Pictures #3, #12, #18, and #20 are in the public domain.<br>
+  #10: <a href='https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich'>CC BY 2.0</a><br>
+  #2, 5, 9: <a href='https://creativecommons.org/licenses/by-nc/2.0/?ref=ccsearch&atype=rich'>CC BY-NC 2.0</a><br>
+  #7: <a href='https://creativecommons.org/licenses/by-sa/2.0/?ref=ccsearch&atype=rich'>CC BY-SA 2.0</a><br>
+  #8: <a href='https://creativecommons.org/licenses/by-nd/2.0/?ref=ccsearch&atype=rich'>CC BY-ND 2.0</a><br>
+  #13: <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/?ref=ccsearch&atype=rich"> CC BY-NC-ND 2.0</a><br>
+  #11, 15: <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a><br>
+  #14: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a><br>
+  #1: "2012 Calendar", by Dan Moyle, is licensed under <a href='https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich'>CC BY 2.0</a>.<br>
+  #4: "Astronauts" (photo by Lara Eakins; painting by Alan Bean) is licensed under <a href='https://creativecommons.org/licenses/by-nc/2.0/?ref=ccsearch&atype=rich'>CC BY-NC 2.0</a>.<br>
+  #6: "Seven dancers performing in 'Sur les Pointes,' a production by Boris Volkoff's Canadian Ballet", by BiblioArchives / LibraryArchives, is licensed under <a href='https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich'>CC BY 2.0</a>.<br>
+  #16: "Banana Split Ice Cream Sweet", by willywonka070, is licensed under the <a href='https://pixabay.com/service/terms/#license'>Pixabay License</a>.<br>
+  #17: "The Andromeda Galaxy", by Ivan Bok, is licensed under <a href='https://creativecommons.org/licenses/by/4.0/deed.en'>CC BY 4.0</a>.<br>
+  #19: "Brahma Adorable Closeup" is licensed under the <a href='https://pixabay.com/service/terms/#license'>Pixabay License</a>.<br>
+</div>
+
 <script>
 
 var whichPuzzle;
@@ -136,6 +186,16 @@ var whichPuzzle;
 // 8: restaurant
 // 9: island
 // 10: firefighters
+// 11: bridge
+// 12: motorcycle
+// 13: factory
+// 14: globe
+// 15: ladybug
+// 16: ice cream
+// 17: galaxy
+// 18: jellyfish
+// 19: chicken
+// 20: corn
 
 function mOver(x) {
 	x.style.color = "#30A8FF";
@@ -155,6 +215,8 @@ function mOut2(x) {
 
 function goToChoices(puzzleID) {
     document.getElementById('menu').style.display = 'none';
+    document.getElementById('clickToShowCCNotice').style.display = 'none';
+    document.getElementById('imageLicensingNotice').style.display = 'none';
     document.getElementById('pieceCountChoices').style.display = 'block';
     whichPuzzle = puzzleID;
 }
@@ -164,45 +226,24 @@ function doPuzzle(pieceCount) {
     document.getElementById('pieceCountChoices').style.display = 'none';
     document.getElementById('wholePuzzle').style.display = 'block';
     document.getElementById('wholePuzzle').style.backgroundImage = "url('pic" + whichPuzzle.slice(3,5) + ".jpg')";
+
     if (pieceCount == 9) {
         document.getElementById('puzzleCover9').style.display = 'block';
         for (i=1; i<10; i++) {
             var newPiece = document.createElement("div");
             document.getElementById("puzzleCover9").appendChild(newPiece);
             newPiece.setAttribute('id','z9'+i);
+            newPiece.setAttribute('class','puzzleCoverPiece');
             newPiece.setAttribute('onclick','takeAwayPuzzlePiece(this)');
             newPiece.innerHTML = i;
             newPiece.style.width = "33.33333333%";
             newPiece.style.height = "33.3333333333%";
-            newPiece.style.position = "fixed";
-            newPiece.style.backgroundColor = "#FFFFFF";
             newPiece.style.border = ".08vw solid #000000";
-            newPiece.style.fontFamily = "Arial";
-            newPiece.style.textAlign = "center";
             newPiece.style.fontSize = "3vw";
             newPiece.style.lineHeight = "7.5vw";
-            switch(i % 3) {
-                case 1:
-                    newPiece.style.left = "0%";
-                    break;
-                case 2:
-                    newPiece.style.left = "33.3333333333333%";
-                    break;
-                case 0:
-                    newPiece.style.left = "66.66666666667%";
-                    break;
-            }
-            switch(Math.ceil(i/3)) {
-                case 1:
-                    newPiece.style.top = "0%";
-                    break;
-                case 2:
-                    newPiece.style.top = "33.33333333333%";
-                    break;
-                case 3:
-                    newPiece.style.top = "66.6666666667%";
-                    break;
-            }
+
+            newPiece.style.left = (100*((i-1) % 3)/3).toString() + "%";
+            newPiece.style.top = (100*(Math.ceil(i/3)-1)/3).toString() + "%";
         }
     }   // end of code for 9 pieces
     if (pieceCount == 16) {
@@ -211,45 +252,17 @@ function doPuzzle(pieceCount) {
             var newPiece = document.createElement("div");
             document.getElementById("puzzleCover16").appendChild(newPiece);
             newPiece.setAttribute('id','z16'+i);
+            newPiece.setAttribute('class','puzzleCoverPiece');
             newPiece.setAttribute('onclick','takeAwayPuzzlePiece(this)');
             newPiece.innerHTML = i;
             newPiece.style.width = "25%";
             newPiece.style.height = "25%";
-            newPiece.style.position = "fixed";
-            newPiece.style.backgroundColor = "#FFFFFF";
             newPiece.style.border = ".08vw solid #000000";
-            newPiece.style.fontFamily = "Arial";
-            newPiece.style.textAlign = "center";
             newPiece.style.fontSize = "3vw";
             newPiece.style.lineHeight = "7.5vw";
-            switch(i % 4) {
-                case 1:
-                    newPiece.style.left = "0%";
-                    break;
-                case 2:
-                    newPiece.style.left = "25%";
-                    break;
-                case 3:
-                    newPiece.style.left = "50%";
-                    break;
-                case 0:
-                    newPiece.style.left = "75%";
-                    break;
-            }
-            switch(Math.ceil(i/4)) {
-                case 1:
-                    newPiece.style.top = "0%";
-                    break;
-                case 2:
-                    newPiece.style.top = "25%";
-                    break;
-                case 3:
-                    newPiece.style.top = "50%";
-                    break;
-                case 4:
-                    newPiece.style.top = "75%";
-                    break;
-            }
+
+            newPiece.style.left = (100*((i-1) % 4)/4).toString() + "%";
+            newPiece.style.top = (100*(Math.ceil(i/4)-1)/4).toString() + "%";
         }
     }   // end of code for 16 pieces
     if (pieceCount == 25) {
@@ -258,51 +271,17 @@ function doPuzzle(pieceCount) {
             var newPiece = document.createElement("div");
             document.getElementById("puzzleCover25").appendChild(newPiece);
             newPiece.setAttribute('id','z25'+i);
+            newPiece.setAttribute('class','puzzleCoverPiece');
             newPiece.setAttribute('onclick','takeAwayPuzzlePiece(this)');
             newPiece.innerHTML = i;
             newPiece.style.width = "20%";
             newPiece.style.height = "20%";
-            newPiece.style.position = "fixed";
-            newPiece.style.backgroundColor = "#FFFFFF";
             newPiece.style.border = ".08vw solid #000000";
-            newPiece.style.fontFamily = "Arial";
-            newPiece.style.textAlign = "center";
             newPiece.style.fontSize = "3vw";
             newPiece.style.lineHeight = "7.5vw";
-            switch(i % 5) {
-                case 1:
-                    newPiece.style.left = "0%";
-                    break;
-                case 2:
-                    newPiece.style.left = "20%";
-                    break;
-                case 3:
-                    newPiece.style.left = "40%";
-                    break;
-                case 4:
-                    newPiece.style.left = "60%";
-                    break;
-                case 0:
-                    newPiece.style.left = "80%";
-                    break;
-            }
-            switch(Math.ceil(i/5)) {
-                case 1:
-                    newPiece.style.top = "0%";
-                    break;
-                case 2:
-                    newPiece.style.top = "20%";
-                    break;
-                case 3:
-                    newPiece.style.top = "40%";
-                    break;
-                case 4:
-                    newPiece.style.top = "60%";
-                    break;
-                case 5:
-                    newPiece.style.top = "80%";
-                    break;
-            }
+
+            newPiece.style.left = (100*((i-1) % 5)/5).toString() + "%";
+            newPiece.style.top = (100*(Math.ceil(i/5)-1)/5).toString() + "%";
         }
     }   // end of code for 25 pieces
     if (pieceCount == 36) {
@@ -311,59 +290,18 @@ function doPuzzle(pieceCount) {
             var newPiece = document.createElement("div");
             document.getElementById("puzzleCover36").appendChild(newPiece);
             newPiece.setAttribute('id','z36'+i);
+            newPiece.setAttribute('class','puzzleCoverPiece');
             newPiece.setAttribute('onclick','takeAwayPuzzlePiece(this)');
             newPiece.innerHTML = i;
             newPiece.style.width = "16.66666667%";
             newPiece.style.height = "16.66666667%";
-            newPiece.style.position = "fixed";
-            newPiece.style.backgroundColor = "#FFFFFF";
             newPiece.style.border = ".08vw solid #000000";
-            newPiece.style.fontFamily = "Arial";
-            newPiece.style.textAlign = "center";
             newPiece.style.fontSize = "3vw";
             newPiece.style.lineHeight = "7.5vw";
-            switch(i % 6) {
-                case 1:
-                    newPiece.style.left = "0%";
-                    break;
-                case 2:
-                    newPiece.style.left = "16.6666667%";
-                    break;
-                case 3:
-                    newPiece.style.left = "33.3333333333%";
-                    break;
-                case 4:
-                    newPiece.style.left = "50%";
-                    break;
-                case 5:
-                    newPiece.style.left = "66.666666667%";
-                    break;
-                case 0:
-                    newPiece.style.left = "83.333333333%";
-                    break;
-            }
-            switch(Math.ceil(i/6)) {
-                case 1:
-                    newPiece.style.top = "0%";
-                    break;
-                case 2:
-                    newPiece.style.top = "16.6666667%";
-                    break;
-                case 3:
-                    newPiece.style.top = "33.3333333333%";
-                    break;
-                case 4:
-                    newPiece.style.top = "50%";
-                    break;
-                case 5:
-                    newPiece.style.top = "66.666666667%";
-                    break;
-                case 6:
-                    newPiece.style.top = "83.333333333%";
-                    break;
-            }
+            newPiece.style.left = (100*((i-1) % 6)/6).toString() + "%";
+            newPiece.style.top = (100*(Math.ceil(i/6)-1)/6).toString() + "%";
         }
-    
+
     }       // end of code for 36 pieces
 
     if (pieceCount == 49) {
@@ -372,65 +310,19 @@ function doPuzzle(pieceCount) {
             var newPiece = document.createElement("div");
             document.getElementById("puzzleCover49").appendChild(newPiece);
             newPiece.setAttribute('id','z49'+i);
+            newPiece.setAttribute('class','puzzleCoverPiece');
             newPiece.setAttribute('onclick','takeAwayPuzzlePiece(this)');
             newPiece.innerHTML = i;
             newPiece.style.width = "14.2857%";
             newPiece.style.height = "14.2857%";
-            newPiece.style.position = "fixed";
-            newPiece.style.backgroundColor = "#FFFFFF";
             newPiece.style.border = ".08vw solid #000000";
-            newPiece.style.fontFamily = "Arial";
-            newPiece.style.textAlign = "center";
             newPiece.style.fontSize = "3vw";
             newPiece.style.lineHeight = "7.5vw";
-            switch(i % 7) {
-                case 1:
-                    newPiece.style.left = "0%";
-                    break;
-                case 2:
-                    newPiece.style.left = "14.2857%";
-                    break;
-                case 3:
-                    newPiece.style.left = "28.5714%";
-                    break;
-                case 4:
-                    newPiece.style.left = "42.8571%";
-                    break;
-                case 5:
-                    newPiece.style.left = "57.1429%";
-                    break;
-                case 6:
-                    newPiece.style.left = "71.4286%";
-                    break;
-                case 0:
-                    newPiece.style.left = "85.7143%";
-                    break;
-            }
-            switch(Math.ceil(i/7)) {
-                case 1:
-                    newPiece.style.top = "0%";
-                    break;
-                case 2:
-                    newPiece.style.top = "14.2857%";
-                    break;
-                case 3:
-                    newPiece.style.top = "28.5714%";
-                    break;
-                case 4:
-                    newPiece.style.top = "42.8571%";
-                    break;
-                case 5:
-                    newPiece.style.top = "57.1429%";
-                    break;
-                case 6:
-                    newPiece.style.top = "71.4286%";
-                    break;
-                case 7:
-                    newPiece.style.top = "85.7143%";
-                    break;
-            }
+
+            newPiece.style.left = (100*((i-1) % 7)/7).toString() + "%";
+            newPiece.style.top = (100*(Math.ceil(i/7)-1)/7).toString() + "%";
         }
-    
+
     }   // end of code for 49 pieces
     if (pieceCount == 64) {
         document.getElementById('puzzleCover64').style.display = 'block';
@@ -438,77 +330,29 @@ function doPuzzle(pieceCount) {
             var newPiece = document.createElement("div");
             document.getElementById("puzzleCover64").appendChild(newPiece);
             newPiece.setAttribute('id','z64'+i);
+            newPiece.setAttribute('class','puzzleCoverPiece');
             newPiece.setAttribute('onclick','takeAwayPuzzlePiece(this)');
             newPiece.innerHTML = i;
             newPiece.style.width = "12.5%";
             newPiece.style.height = "12.5%";
-            newPiece.style.position = "fixed";
-            newPiece.style.backgroundColor = "#FFFFFF";
             newPiece.style.border = ".08vw solid #000000";
-            newPiece.style.fontFamily = "Arial";
-            newPiece.style.textAlign = "center";
             newPiece.style.fontSize = "3vw";
             newPiece.style.lineHeight = "7.5vw";
-            switch(i % 8) {
-                case 1:
-                    newPiece.style.left = "0%";
-                    break;
-                case 2:
-                    newPiece.style.left = "12.5%";
-                    break;
-                case 3:
-                    newPiece.style.left = "25%";
-                    break;
-                case 4:
-                    newPiece.style.left = "37.5%";
-                    break;
-                case 5:
-                    newPiece.style.left = "50%";
-                    break;
-                case 6:
-                    newPiece.style.left = "62.5%";
-                    break;
-                case 7:
-                    newPiece.style.left = "75%";
-                    break;
-                case 0:
-                    newPiece.style.left = "87.5%";
-                    break;
-            }
-            switch(Math.ceil(i/8)) {
-                case 1:
-                    newPiece.style.top = "0%";
-                    break;
-                case 2:
-                    newPiece.style.top = "12.5%";
-                    break;
-                case 3:
-                    newPiece.style.top = "25%";
-                    break;
-                case 4:
-                    newPiece.style.top = "37.5%";
-                    break;
-                case 5:
-                    newPiece.style.top = "50%";
-                    break;
-                case 6:
-                    newPiece.style.top = "62.5%";
-                    break;
-                case 7:
-                    newPiece.style.top = "75%";
-                    break;
-                case 8:
-                    newPiece.style.top = "87.5%";
-                    break;
-            }
+
+            newPiece.style.left = (100*((i-1) % 8)/8).toString() + "%";
+            newPiece.style.top = (100*(Math.ceil(i/8)-1)/8).toString() + "%";
         }
-    
+
     }   // end of code for 64 pieces
 
 }
 
 function takeAwayPuzzlePiece(x) {
     x.style.display = 'none';
+}
+
+function showimageLicensingNotice() {
+  document.getElementById('imageLicensingNotice').style.visibility = 'visible';
 }
 
 </script>
